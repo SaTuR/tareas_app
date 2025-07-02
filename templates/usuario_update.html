@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{%block titulo %}
+Modificar Usuario
+{% endblock %}
+
+{%block contenido %}
+
+<form method="post">
+    <input type="number" name="txtid" value="{{usuario.id}}" required><br>
+    <input type="text" name="txtusername" value="{{usuario.username}}" placeholder="Username" required><br>
+    <input type="email" name="txtemail" value="{{usuario.email}}" required><br>
+    {% if usuario.is_admin %}
+    <input type="checkbox" checked name="txtis_admin"><br><br>
+    {% else %}
+    <input type="checkbox" name="txtis_admin"><br><br>
+    {% endif %}
+    <!-- <h1>{{usuario.is_admin}}</h1> -->
+    <button type="reset" class="btn btn-secondary">Reset</button>
+    <button type="submit" class="btn btn-primary">Aceptar</button>
+</form>
+
+{% endblock %}
